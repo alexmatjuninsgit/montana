@@ -1,0 +1,23 @@
+<table [dataSource]="dataSource" class="comments-table" mat-table>
+  <!-- Comment Column -->
+  <ng-container matColumnDef="comment">
+    <th *matHeaderCellDef mat-header-cell>Comment</th>
+    <td *matCellDef="let element" mat-cell>{{element.comment}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef mat-header-cell>Name</th>
+    <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th *matHeaderCellDef mat-header-cell>Email</th>
+    <td *matCellDef="let element" mat-cell>{{element.email}}</td>
+  </ng-container>
+
+  <!-- Header and Row-->
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
