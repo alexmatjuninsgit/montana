@@ -24,17 +24,15 @@ describe('CommentsService', () => {
     httpMock.verify();
   });
 
-  it('fetchComments() should return data', async(() => {
+  it('fetchComments() should return comment data', async(() => {
     const dummyData = mockGetCommentsResponse();
 
     service.fetchComments();
 
-    service.comments.subscribe((res) => {
-      expect(res).toEqual(dummyData);
-    });
-
     const req = httpMock.expectOne(AppSettings.API.COMMENTS.GET);
     expect(req.request.method).toBe('GET');
     req.flush(dummyData);
+
+    expect(service.comments.value).toEqual(dummyData);
   }));
 });

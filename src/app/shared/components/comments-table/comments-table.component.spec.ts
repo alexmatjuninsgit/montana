@@ -30,7 +30,8 @@ describe('CommentsTableComponent', () => {
   });
 
   it('should show table data', () => {
-    component.dataSource = mapCommentsResponseToTableModel(mockGetCommentsResponse());
+    const mockData = mockGetCommentsResponse();
+    component.dataSource = mapCommentsResponseToTableModel(mockData);
 
     fixture.detectChanges();
 
