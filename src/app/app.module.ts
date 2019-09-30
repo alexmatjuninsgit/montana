@@ -20,7 +20,7 @@ import { RandomCommentsModule } from './components/random-comments/random-commen
     MatIconModule,
     MatButtonModule,
     RandomCommentsModule,
-    CommentsModule,
+    CommentsModule
   ],
   providers: [],
   exports: [

@@ -32,11 +32,19 @@ export class CommentsService {
   public getRandomComments = (array: Array<CommentsResponseModel>, howMany: number): Array<CommentsResponseModel> => {
     const randomComments: Array<CommentsResponseModel> = [];
 
-    for (let i = 0; i < howMany; i++) {
-      const newComment = array[Math.floor(Math.random() * array.length)];
-      if (newComment) {
-        randomComments.push(newComment);
-      }
+    if (array && array.length > 0) {
+      let count = 0;
+      const indexMap = new Object({});
+      const maxCount = Math.min(array.length, howMany);
+
+      do {
+        const index = Math.floor(Math.random() * array.length);
+        if (!indexMap[index]) {
+          randomComments.push(array[index]);
+          indexMap[index] = true;
+          count++;
+        }
+      } while (count < maxCount);
     }
 
     return randomComments;
