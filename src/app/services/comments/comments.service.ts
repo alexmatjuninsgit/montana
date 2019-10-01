@@ -23,6 +23,7 @@ export class CommentsService {
           this.isLoading.next(false);
         },
         (error) => {
+          window.alert('Something goes wrong. Please try again later.');
           this.isLoading.next(false);
           this.comments.error(error);
         },

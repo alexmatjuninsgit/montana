@@ -3,7 +3,8 @@
     {{applicationName}}
   </div>
   <div>
-    <button class="btn-refresh"
+    <button *ngIf="commentsService"
+            class="btn-refresh"
             (click)="onRefresh()"
             [disabled]="commentsService.isLoading | async"
             mat-button
