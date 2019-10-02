@@ -25,8 +25,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.commentsService.fetchComments();
-
     this.commentsService.comments
       .pipe(takeUntil(this.onDestroy))
       .subscribe((response) => {
@@ -43,6 +41,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
             item.email.includes(value) ||
             item.body.includes(value)));
       });
+
+    this.commentsService.fetchComments();
   }
 
   private resetFilterInputValue() {
