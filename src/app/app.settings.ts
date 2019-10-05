@@ -1,7 +1,7 @@
-export class AppSettings {
-  public static API = {
+export const AppSettings = {
+  API: {
     COMMENTS: {
       GET: 'https://jsonplaceholder.typicode.com/comments'
     }
-  };
-}
+  }
+};
