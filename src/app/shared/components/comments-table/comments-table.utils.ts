@@ -2,7 +2,7 @@ import { CommentsResponseModel } from '../../../services/comments/comments.servi
 import { CommentsTableModel } from './comments-table.model';
 
 export const mapCommentsResponseToTableModel = (response: Array<CommentsResponseModel>): Array<CommentsTableModel> => (
-  response && response.map((comment) =>
+  response.map((comment) =>
     ({
       comment: comment.body,
       email: comment.email,
