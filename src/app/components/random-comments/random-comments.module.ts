@@ -16,9 +16,6 @@ import { CommonModule } from '@angular/common';
   providers: [],
   exports: [
     RandomCommentsComponent
-  ],
-  bootstrap: [
-    RandomCommentsComponent
   ]
 })
 export class RandomCommentsModule {

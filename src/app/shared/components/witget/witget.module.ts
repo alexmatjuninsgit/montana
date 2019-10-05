@@ -17,9 +17,6 @@ import { MatCardModule, MatProgressBarModule } from '@angular/material';
   providers: [],
   exports: [
     WidgetComponent
-  ],
-  bootstrap: [
-    WidgetComponent
   ]
 })
 export class WidgetModule { }

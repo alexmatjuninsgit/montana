@@ -31,9 +31,6 @@ import { BrowserModule } from '@angular/platform-browser';
   providers: [],
   exports: [
     CommentsComponent
-  ],
-  bootstrap: [
-    CommentsComponent
   ]
 })
 export class CommentsModule {

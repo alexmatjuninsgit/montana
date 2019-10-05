@@ -16,8 +16,7 @@ import { MatTableModule } from '@angular/material';
   providers: [],
   exports: [
     CommentsTableComponent
-  ],
-  bootstrap: [CommentsTableComponent]
+  ]
 })
 export class CommentsTableModule {
 }

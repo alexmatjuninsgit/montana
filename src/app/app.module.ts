@@ -23,9 +23,6 @@ import { RandomCommentsModule } from './components/random-comments/random-commen
     CommentsModule
   ],
   providers: [],
-  exports: [
-    AppComponent
-  ],
   bootstrap: [
     AppComponent
   ]
