@@ -35,7 +35,7 @@ export class CommentsService {
 
     if (array.length) {
       let count = 0;
-      const indexMap = new Object({});
+      const indexMap = {};
       const maxCount = Math.min(array.length, howMany);
 
       do {
