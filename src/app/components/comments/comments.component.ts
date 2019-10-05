@@ -12,11 +12,13 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit, OnDestroy {
+
+  protected dataSource: Array<CommentsTableModel> = [];
+  public filterInputControl = new FormControl();
+
   constructor(private commentsService: CommentsService) {
   }
 
-  protected dataSource: Array<CommentsTableModel> = [];
-  private filterInputControl = new FormControl();
   private readonly onDestroy = new Subject();
 
   public ngOnDestroy(): void {
