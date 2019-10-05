@@ -33,7 +33,7 @@ export class CommentsService {
   public getRandomComments = (array: Array<CommentsResponseModel>, howMany: number): Array<CommentsResponseModel> => {
     const randomComments: Array<CommentsResponseModel> = [];
 
-    if (array && array.length > 0) {
+    if (array.length) {
       let count = 0;
       const indexMap = new Object({});
       const maxCount = Math.min(array.length, howMany);
