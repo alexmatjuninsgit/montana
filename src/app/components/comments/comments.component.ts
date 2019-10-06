@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   protected dataSource: Array<CommentsTableModel> = [];
   public filterInputControl = new FormControl();
 
-  constructor(private commentsService: CommentsService) {
+  constructor(public commentsService: CommentsService) {
   }
 
   private readonly onDestroy = new Subject();

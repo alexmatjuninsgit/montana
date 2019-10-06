@@ -7,7 +7,7 @@ import { CommentsService } from './services/comments/comments.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private commentsService: CommentsService) {
+  constructor(public commentsService: CommentsService) {
   }
 
   private applicationName = 'Montana';

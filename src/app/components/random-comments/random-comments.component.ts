@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './random-comments.component.html'
 })
 export class RandomCommentsComponent implements OnInit, OnDestroy {
-  constructor(private commentsService: CommentsService) { }
+  constructor(public commentsService: CommentsService) { }
 
   protected dataSource: Array<CommentsTableModel> = [];
   private readonly onDestroy = new Subject();
