@@ -5,6 +5,7 @@ import { mapCommentsResponseToTableModel } from '../../shared/components/comment
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CommentsResponseModel } from '../../services/comments/comments.service.model';
 
 @Component({
   selector: 'app-comments',
@@ -30,21 +31,27 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.commentsService.comments
       .pipe(takeUntil(this.onDestroy))
       .subscribe((response) => {
-        this.resetFilterInputValue();
-        this.dataSource = mapCommentsResponseToTableModel(response);
+        this.dataSource = mapCommentsResponseToTableModel(
+          this.filteredComments(response, this.filterInputControl.value)
+        );
       });
 
     this.filterInputControl.valueChanges
       .pipe(takeUntil(this.onDestroy))
       .subscribe((value) => {
         this.dataSource = mapCommentsResponseToTableModel(
-          this.commentsService.comments.value.filter((item) =>
-            item.name.includes(value) ||
-            item.email.includes(value) ||
-            item.body.includes(value)));
+          this.filteredComments(this.commentsService.comments.value, value)
+        );
       });
 
     this.commentsService.fetchComments();
+  }
+
+  private filteredComments(comments: Array<CommentsResponseModel>, value): Array<CommentsResponseModel> {
+    return comments.filter((item) =>
+      item.name.includes(value) ||
+      item.email.includes(value) ||
+      item.body.includes(value));
   }
 
   private resetFilterInputValue() {
