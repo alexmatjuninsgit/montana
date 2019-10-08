@@ -47,7 +47,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.commentsService.fetchComments();
   }
 
-  private filteredComments(comments: Array<CommentsResponseModel>, value): Array<CommentsResponseModel> {
+  private filteredComments(comments: Array<CommentsResponseModel>, value: string): Array<CommentsResponseModel> {
     return comments.filter((item) =>
       item.name.includes(value) ||
       item.email.includes(value) ||
