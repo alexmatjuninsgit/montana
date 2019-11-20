@@ -1,0 +1,6 @@
+<app-widget [isLoading]="commentsService.isLoading | async">
+  <app-comments-table
+    [dataSource]="dataSource"
+  ></app-comments-table>
+</app-widget>
+

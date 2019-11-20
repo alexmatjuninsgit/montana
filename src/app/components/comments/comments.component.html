@@ -1,0 +1,25 @@
+<app-widget [isLoading]="commentsService.isLoading | async">
+  <mat-form-field class="comment-filter-field">
+    <label>
+      <input [formControl]="filterInputControl"
+             matInput
+             placeholder="Filter comments"
+             type="text"
+      >
+    </label>
+    <button (click)="resetFilterInputValue()"
+            *ngIf="filterInputControl.value"
+            aria-label="Clear"
+            mat-button
+            mat-icon-button
+            matSuffix>
+      <mat-icon>
+        close
+      </mat-icon>
+    </button>
+  </mat-form-field>
+
+  <app-comments-table
+    [dataSource]="dataSource"
+  ></app-comments-table>
+</app-widget>

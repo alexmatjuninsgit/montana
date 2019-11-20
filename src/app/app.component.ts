@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommentsService } from './services/comments/comments.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'montana';
+  constructor(public commentsService: CommentsService) {
+  }
+
+  private applicationName = 'Montana';
+
+  private onRefresh = (): void => {
+    this.commentsService.fetchComments();
+  };
 }
